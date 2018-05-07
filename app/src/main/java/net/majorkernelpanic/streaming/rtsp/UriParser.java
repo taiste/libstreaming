@@ -65,7 +65,7 @@ public class UriParser {
 	 * @return A Session configured according to the URI
 	 */
 	public static Session parse(String uri) throws IllegalStateException, IOException {		
-		SessionBuilder builder = SessionBuilder.getInstance().clone();
+		SessionBuilder builder = new SessionBuilder();
 		byte audioApi = 0, videoApi = 0;
 
 		List<NameValuePair> params = URLEncodedUtils.parse(URI.create(uri),"UTF-8");
@@ -185,7 +185,7 @@ public class UriParser {
 		}
 
 		if (builder.getVideoEncoder()==VIDEO_NONE && builder.getAudioEncoder()==AUDIO_NONE) {
-			SessionBuilder b = SessionBuilder.getInstance();
+			SessionBuilder b = new SessionBuilder();
 			builder.setVideoEncoder(b.getVideoEncoder());
 			builder.setAudioEncoder(b.getAudioEncoder());
 		}

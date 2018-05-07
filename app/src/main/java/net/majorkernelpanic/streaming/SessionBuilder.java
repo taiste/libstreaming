@@ -36,9 +36,6 @@ import android.content.Context;
 import android.hardware.Camera.CameraInfo;
 import android.preference.PreferenceManager;
 
-/**
- * Call {@link #getInstance()} to get access to the SessionBuilder.
- */
 public class SessionBuilder {
 
     public final static String TAG = "SessionBuilder";
@@ -77,27 +74,6 @@ public class SessionBuilder {
     private Session.Callback mCallback = null;
     private int mAudioPort = 5004;
     private int mVideoPort = 5006;
-
-    // Removes the default public constructor
-    private SessionBuilder() {}
-
-    // The SessionManager implements the singleton pattern
-    private static volatile SessionBuilder sInstance = null;
-
-    /**
-     * Returns a reference to the {@link SessionBuilder}.
-     * @return The reference to the {@link SessionBuilder}
-     */
-    public final static SessionBuilder getInstance() {
-        if (sInstance == null) {
-            synchronized (SessionBuilder.class) {
-                if (sInstance == null) {
-                    SessionBuilder.sInstance = new SessionBuilder();
-                }
-            }
-        }
-        return sInstance;
-    }
 
     /**
      * Creates a new {@link Session}.
