@@ -305,7 +305,7 @@ public class SessionBuilder {
     /** Returns a new {@link SessionBuilder} with the same configuration. */
     public SessionBuilder clone() {
         return new SessionBuilder()
-        .setDestination(mDestination)
+        .setDestination(mDestination, mVideoPort, mAudioPort)
         .setOrigin(mOrigin)
         .setSurfaceView(mSurfaceView)
         .setPreviewOrientation(mOrientation)
